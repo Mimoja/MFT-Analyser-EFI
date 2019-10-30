@@ -1,7 +1,7 @@
 package main
 
 import (
-	"MimojaFirmwareToolkit/pkg/Common"
+	"github.com/Mimoja/MFT-Common"
 	"github.com/linuxboot/fiano/pkg/uefi"
 	"io/ioutil"
 )
