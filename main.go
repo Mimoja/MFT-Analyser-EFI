@@ -5,26 +5,10 @@ import (
 	"encoding/json"
 )
 
-func worker(id int, file chan MFTCommon.FlashImage) {
-
-	for true {
-		load := <-file
-		Bundle.Log.WithField("entry", load).Infof("Handeling %s in Worker %d\n", load.ID.GetID(), id)
-		analyse(load)
-	}
-}
-
-const NumberOfWorker = 3
-
 var Bundle MFTCommon.AppBundle
 
 func main() {
 	Bundle = MFTCommon.Init("EFIUnpacker")
-
-	biosImages := make(chan MFTCommon.FlashImage, NumberOfWorker)
-	for w := 1; w <= NumberOfWorker; w++ {
-		go worker(w, biosImages)
-	}
 
 	Bundle.MessageQueue.BiosImagesQueue.RegisterCallback("EFIUnpacker", func(payload string) error {
 
@@ -35,7 +19,8 @@ func main() {
 			Bundle.Log.WithError(err).Error("Could not unmarshall json")
 			return err
 		}
-		biosImages <- file
+		Bundle.Log.WithField("entry", file).Infof("Handeling %s\n", file.ID.GetID())
+		analyse(file)
 
 		return nil
 	})

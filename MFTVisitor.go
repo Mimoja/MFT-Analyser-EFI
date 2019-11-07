@@ -5,20 +5,19 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
-	"path/filepath"
-
 	"github.com/linuxboot/fiano/pkg/uefi"
+	"path/filepath"
 )
 
-// S3Extract extracts any Firmware node to DirPath
-type S3Extract struct {
-	DirPath string
-	Index   *uint64
+// MFTExtract extracts any Firmware node to DirPath
+type MFTExtract struct {
+	JSON string
 }
 
 // Run wraps Visit and performs some setup and teardown tasks.
-func (v *S3Extract) Run(f uefi.Firmware) error {
+func (v *MFTExtract) Run(f uefi.Firmware) error {
 
 	if err := f.Apply(v); err != nil {
 		return err
@@ -26,12 +25,16 @@ func (v *S3Extract) Run(f uefi.Firmware) error {
 	return nil
 }
 
-// Visit applies the S3Extract visitor to any Firmware type.
-func (v *S3Extract) Visit(f uefi.Firmware) error {
-	// The visitor must be cloned before modification; otherwise, the
-	// sibling's values are modified.
+// Visit applies the MFTExtract visitor to any Firmware type.
+func (v *MFTExtract) Visit(f uefi.Firmware) error {
+
 	v2 := *v
 
+	b, err := json.MarshalIndent(f, "", "\t")
+	if err != nil {
+		return err
+	}
+	//v.JSON = string(b);
 	var err error
 	switch f := f.(type) {
 
@@ -66,11 +69,4 @@ func (v *S3Extract) Visit(f uefi.Firmware) error {
 	}
 
 	return f.ApplyChildren(&v2)
-}
-
-func store(buf []byte, dirPath string, filename string) (string, error) {
-
-	fp := filepath.Join(dirPath, filename)
-	//TODO do not ignore
-	return fp, nil
 }

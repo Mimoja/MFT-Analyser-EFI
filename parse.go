@@ -1,6 +1,8 @@
 package main
 
 import (
+	"context"
+	"encoding/json"
 	"github.com/Mimoja/MFT-Common"
 	"github.com/linuxboot/fiano/pkg/uefi"
 	"io/ioutil"
@@ -36,14 +38,32 @@ func analyse(entry MFTCommon.FlashImage) error {
 		return err
 	}
 
-	var fileIndex uint64
-	visitor := S3Extract{DirPath: entry.ID.GetID(), Index: &fileIndex}
+	visitor := MFTExtract{}
 	visitor.Run(parsedRoot)
 
-	//jsonEncode.Encode(parsedRoot)
+	efiJSON := visitor.JSON
 
+	json.Unmarshal([]byte(efiJSON), )
 	id := entry.ID.GetID()
 	Bundle.DB.StoreElement("efi", nil, parsedRoot, &id)
+
+	_, err = Bundle.DB.ES.Update().
+		Index("flashimages").
+		Type("flashimage").
+		Id(entry.ID.GetID()).
+		Doc(map[string]interface{}{"EFIBlob": efiJSON}).
+		Do(context.Background())
+
+
+	if err != nil {
+		Bundle.Log.WithField("entry", entry).
+			WithError(err).
+			Errorf("Cannot update efi: %v", err)
+		return err
+	}
+
+	Bundle.Log.WithField("entry", entry).
+		Infof("Updated efi")
 
 	return nil
 }
