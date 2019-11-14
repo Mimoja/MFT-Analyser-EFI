@@ -3,6 +3,7 @@ github.com/BurntSushi/toml v0.3.1 h1:WXkYYl6Yr3qBf1K79EBnL4mak0OimBfB0XUf9Vl28OQ
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/Mimoja/MFT-Common v0.0.0-20191030115252-780819867130 h1:TCIIIYQ0p0hctN1OuL6AwGk2Fkw+W/9tym8SXhl+Iwc=
 github.com/Mimoja/MFT-Common v0.0.0-20191030115252-780819867130/go.mod h1:mx0kR2nu0iYng9ptKMDmLMWydLH1hn60gUmJYa9BuVo=
+github.com/Mimoja/MFT-Common v0.0.0-20191114081849-df980f4b1ff2/go.mod h1:mx0kR2nu0iYng9ptKMDmLMWydLH1hn60gUmJYa9BuVo=
 github.com/Mimoja/PSP-Entry-Types v0.0.0-20190620172056-b980f3fbafa7 h1:M9QDkfQ8oE94q0+odPUcw2u0F9cbTT7o9YStV2WragM=
 github.com/Mimoja/PSP-Entry-Types v0.0.0-20190620172056-b980f3fbafa7/go.mod h1:iZDm2Dh5T8SliuWA1nTbUfSAWTMWWn1fMVHR3CbkrpA=
 github.com/OneOfOne/xxhash v1.2.2/go.mod h1:HSdplMjZKSmBqAxg5vPj2TmRDmfkzw+cTzAElWljhcU=
@@ -80,8 +81,8 @@ github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORN
 github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
 github.com/kr/text v0.1.0 h1:45sCR5RtlFHMR4UwH9sdQ5TC8v0qDQCHnXt+kaKSTVE=
 github.com/kr/text v0.1.0/go.mod h1:4Jbv+DJW3UT/LiOwJeYQe1efqtUx/iVham/4vfdArNI=
-github.com/linuxboot/fiano v5.0.1-0.20191025053120-41ac08f71926+incompatible h1:L368d3MCM/isufkgIECN+qwa4rYQIn0fEGlRiZAMzA0=
-github.com/linuxboot/fiano v5.0.1-0.20191025053120-41ac08f71926+incompatible/go.mod h1:IPKmAwYdbidivI8+nWCBO97QkdsiF8OThAHowU8Tvdk=
+github.com/linuxboot/fiano v5.0.1-0.20191109092150-9b99aa13b261+incompatible h1:z5Dp7dRHa9sll7qW3DKIxB6fCT86IdJNWgI5ROzRAnE=
+github.com/linuxboot/fiano v5.0.1-0.20191109092150-9b99aa13b261+incompatible/go.mod h1:IPKmAwYdbidivI8+nWCBO97QkdsiF8OThAHowU8Tvdk=
 github.com/magiconair/properties v1.8.0 h1:LLgXmsheXeRoUOBOjtwPQCWIYqM/LU1ayDtDePerRcY=
 github.com/magiconair/properties v1.8.0/go.mod h1:PppfXfuXeibc/6YijjN8zIbojt8czPbwD3XqdrwzmxQ=
 github.com/mailru/easyjson v0.0.0-20180823135443-60711f1a8329 h1:2gxZ0XQIU/5z3Z3bUBu+FXuk2pFbkN6tcwi/pjyaDic=
