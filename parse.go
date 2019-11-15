@@ -27,7 +27,9 @@ func analyse(entry MFTCommon.FlashImage) error {
 		return err
 	}
 
-	parsedRoot, err := uefi.Parse(image)
+	biosPart := image[entry.FirmwareOffset:]
+
+	parsedRoot, err := uefi.Parse(biosPart)
 	if err != nil {
 		if err.Error() == "no firmware volumes in BIOS Region" {
 			Bundle.Log.WithField("entry", entry).WithError(err).Info("Not EFI found")
