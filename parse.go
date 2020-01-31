@@ -46,6 +46,8 @@ func analyse(entry MFTCommon.FlashImage) error {
 	efiJSON := visitor.JSON
 
 	id := entry.ID.GetID()
+
+/*
 	Bundle.DB.StoreElement("efi", nil, parsedRoot, &id)
 
 	_, err = Bundle.DB.ES.Update().
@@ -65,6 +67,6 @@ func analyse(entry MFTCommon.FlashImage) error {
 
 	Bundle.Log.WithField("entry", entry).
 		Infof("Updated efi")
-
+*/
 	return nil
 }
