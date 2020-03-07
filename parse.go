@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"github.com/Mimoja/MFT-Common"
 	"github.com/linuxboot/fiano/pkg/uefi"
 	"io/ioutil"
@@ -43,9 +42,9 @@ func analyse(entry MFTCommon.FlashImage) error {
 
 	visitor.Run(parsedRoot)
 
-	efiJSON := visitor.JSON
+	//efiJSON := visitor.JSON
 
-	id := entry.ID.GetID()
+	//id := entry.ID.GetID()
 
 /*
 	Bundle.DB.StoreElement("efi", nil, parsedRoot, &id)
